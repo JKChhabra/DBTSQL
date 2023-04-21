@@ -18,10 +18,39 @@ functions:
   udafs: {}
   expressions: {}
 subgraphs: {}
-sqlModels: {}
+sqlModels:
+  .prophecy/metadata/sqlmodels/test:
+    name: test
+    description: null
+    author: jagmeet+2@prophecy.io
+    files:
+    - models/test.sql
+    - .prophecy/ide/models/test.json
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-04-21 10:17:12'
+    modifiedAt: '2023-04-21 10:17:12'
 sqlMacros: {}
-sqlSeeds: {}
-sqlSources: {}
+sqlSeeds:
+  .prophecy/metadata/sqlseeds/electricvehicle:
+    name: electricvehicle
+    description: null
+    author: jagmeet+2@prophecy.io
+    files:
+    - seeds/electricvehicle.csv
+    createdAt: '2023-04-21 10:19:58'
+    modifiedAt: '2023-04-21 10:19:58'
+sqlSources:
+  .prophecy/metadata/sqlsources/electricvehicle:
+    name: electricvehicle
+    description: null
+    author: jagmeet+2@prophecy.io
+    files:
+    - models/electricvehicle.yml
+    createdAt: '2023-04-21 10:18:31'
+    modifiedAt: '2023-04-21 10:18:31'
+    tables: []
 sqlUnreferencedSources: {}
 sqlPipeline:
   name: sqlPipeline

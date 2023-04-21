@@ -1,0 +1,139 @@
+{
+  "id" : "test",
+  "metainfo" : {
+    "label" : "test",
+    "autoLayout" : false,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    }
+  },
+  "processes" : {
+    "seed##OWRro54S" : {
+      "id" : "seed##OWRro54S",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "seed",
+        "x" : 120,
+        "y" : 120,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "electricvehicle",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "fR3TWGGH",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "FirstName",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "LastName",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "Age",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "test##nXKLKbTb" : {
+      "id" : "test##nXKLKbTb",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "test",
+        "x" : 320,
+        "y" : 120,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM seed\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "qOepkRoY",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "FirstName",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "LastName",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "Age",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "seed"
+        } ],
+        "outputs" : [ {
+          "id" : "IQBNggfy",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "FirstName",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "LastName",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "Age",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "NiUoNOyf",
+    "source" : "seed##OWRro54S",
+    "sourcePort" : "fR3TWGGH",
+    "target" : "test##nXKLKbTb",
+    "targetPort" : "qOepkRoY"
+  } ],
+  "component" : "Model"
+}
